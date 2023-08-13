@@ -39,3 +39,15 @@ console.log(numero.padStart(5, "0")); // "00042"
 const strSplit = "Maçã, Banana, Uva";
 const frutas = strSplit.split(", ");
 console.log(frutas); // ["Maçã", "Banana", "Uva"]
+
+// .charAt(index): Retorna o caractere na posição especificada pelo índice.
+const str = "Hello";
+const char = str.charAt(0); // Retorna "H"
+
+// .substring(startIndex, endIndex): Retorna uma nova substring da string original, 
+// incluindo o caractere no índice de início e excluindo o caractere no índice de término. 
+// Se o índice de término não for fornecido, a substring vai até o final da string.
+
+const str2 = "Hello, World!";
+const sub1 = str2.substring(7, 12); // Retorna "World"
+const sub2 = str2.substring(3); // Retorna "lo, World!"
