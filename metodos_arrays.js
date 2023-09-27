@@ -81,5 +81,8 @@ console.log(numeros); // [0, 10, 2, 2.5, 4, 5]
 console.log("banana".localeCompare("abacaxi")); // 1
 
 // .reduce(): Aplica uma função a um acumulador e a cada elemento do array.
-const somaDosNumeros = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+const somaDosNumeros = numeros.reduce(
+  (acumulador, numero) => acumulador + numero,
+  0
+);
 console.log(somaDosNumeros); // 23
