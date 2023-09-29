@@ -105,6 +105,23 @@ ADD CONSTRAINT fk_departamento
     FOREIGN KEY (departamento_id)
     REFERENCES departamentos (id);
 
+-- A chave estrangeira pode ser definida ao criar a tabela (caso exista uma tabela que vai ser a referencia). Ex:
+CREATE TABLE employess (
+    ...
+    departamento_id INT NOT NULL REFERENCES departamentos(id)
+    ...
+);
+
+-- Ou dessa outra forma mais verbosa:
+
+CREATE TABLE employees (
+    ...
+    departamento_id INTEGER,
+    FOREIGN KEY departamento_id NOT NULL REFERENCES departamentos(id);
+    ...
+);
+
+
 -- Exemplo de como inserir dados respeitando a chave estrangeira
 INSERT INTO employees (full_name, salario, data_contratacao, departamento_id)
 VALUES ('João', 5000.00, '2023-01-15', 1); -- Supondo que o departamento com ID 1 existe em "departamentos"
