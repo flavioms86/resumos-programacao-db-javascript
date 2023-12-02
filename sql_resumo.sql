@@ -82,6 +82,12 @@ SELECT funcionarios.nome, departamentos.nome AS departamento
 FROM funcionarios
 LEFT JOIN departamentos ON funcionarios.id_departamento = departamentos.id;
 
+/* Exemplo usando alias para nomes de tabelas
+SELECT B.ID, B.INICIO, B.FIM, A.NOME AS ATIVIDADE
+FROM TB_BLOCO B
+LEFT JOIN TB_ATIVIDADE A ON B.ATIVIDADE_ID = A.ID
+*/
+
 /*
 RIGHT JOIN:
 
