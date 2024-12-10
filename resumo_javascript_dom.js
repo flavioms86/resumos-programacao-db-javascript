@@ -115,3 +115,64 @@ button.addEventListener("click", () => {
 const handleClick = () => alert("Button clicked!");
 button.addEventListener("click", handleClick);
 button.removeEventListener("click", handleClick);
+
+// ==========================
+// 8. Eventos de Teclado
+// ==========================
+
+// Ouvindo eventos de teclado no documento ou em elementos específicos
+document.addEventListener("keydown", event => {
+  console.log(`Tecla pressionada: ${event.key}`);
+});
+
+// Exemplos práticos:
+
+// 1. Detectar quando uma tecla específica é pressionada
+document.addEventListener("keydown", event => {
+  if (event.key === "Enter") {
+    console.log("Você pressionou Enter!");
+  }
+});
+
+// 2. Detectar combinação de teclas (Ctrl + S)
+document.addEventListener("keydown", event => {
+  if (event.ctrlKey && event.key === "s") {
+    event.preventDefault(); // Previne a ação padrão do navegador
+    console.log("Você pressionou Ctrl + S");
+  }
+});
+
+// 3. Eventos de "keyup" (quando a tecla é solta)
+document.addEventListener("keyup", event => {
+  console.log(`Tecla solta: ${event.key}`);
+});
+
+// 4. Capturar texto digitado em um campo de entrada
+const inputField = document.getElementById("textInput"); // Exemplo: <input id="textInput" type="text">
+inputField.addEventListener("input", event => {
+  console.log(`Texto digitado: ${event.target.value}`);
+});
+
+// 5. Responder ao foco em campos de entrada
+inputField.addEventListener("focus", () => {
+  console.log("Campo de texto focado!");
+});
+
+// 6. Evitar caracteres não permitidos
+inputField.addEventListener("keydown", event => {
+  const invalidChars = ["e", "E"]; // Exemplo: evitar letras 'e' e 'E'
+  if (invalidChars.includes(event.key)) {
+    event.preventDefault();
+    console.log(`A tecla "${event.key}" não é permitida.`);
+  }
+});
+
+/*
+Notas Importantes:
+
+keydown: Ocorre quando a tecla é pressionada. Ideal para detectar ações imediatas.
+keyup: Ocorre quando a tecla é solta. Útil para ações que devem ser concluídas após a digitação.
+event.key: Retorna a tecla pressionada como string (e.g., "a", "Enter").
+event.code: Retorna o código físico da tecla (e.g., "KeyA", "ArrowUp"), independente da configuração do teclado.
+event.preventDefault(): Evita a ação padrão do navegador (e.g., prevenir "Ctrl + S" de salvar a página).
+*/
